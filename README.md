@@ -1,5 +1,6 @@
 # Kuberbetes persistent volume test
 This repository contains read/write speed tests for Kubernetes Persistent Volumes (PVs).
+This repo is a clone from "https://github.com/phnmnl/k8s-volume-test" and make tiny modification
 
 ## How to run the test
 
@@ -14,8 +15,12 @@ We assume you have:
 Please clone this repository, and locate into it:
 
 ```bash
-git clone https://github.com/phnmnl/k8s-volume-test.git
 cd k8s-volume-test
+```
+Create a "LocalStorage" PersistentVolume using `pv.yml`:
+
+```bash
+kubectl apply -f pv.yml
 ```
 
 Create a PersistentVolumeClaim using `pvc.yml`:

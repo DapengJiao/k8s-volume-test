@@ -13,9 +13,9 @@ spec:
         command: ["dd","if=/mnt/pv/test.img","of=/dev/null","bs=8k"]
         volumeMounts:
         - mountPath: "/mnt/pv"
-          name: test-volume
+          name: local-storage-volume
       volumes:
-      - name: test-volume
+      - name: local-storage-volume
         persistentVolumeClaim:
-          claimName: test-claim
+          claimName: local-storage-claim
       restartPolicy: Never
