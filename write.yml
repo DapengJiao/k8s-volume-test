@@ -10,7 +10,7 @@ spec:
       containers:
       - name: write
         image: ubuntu:xenial
-        command: ["dd","if=/dev/zero","of=/mnt/pv/test.img","bs=1G","count=1","oflag=dsync"]
+        command: ["dd","if=/dev/zero","of=/mnt/pv/test.img","bs=4G","count=1","oflag=dsync"]
         volumeMounts:
         - mountPath: "/mnt/pv"
           name: local-storage-volume

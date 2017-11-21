@@ -9,7 +9,7 @@ metadata:
           { "matchExpressions": [
             { "key": "kubernetes.io/hostname",
               "operator": "In",
-              "values": ["my-node"]
+              "values": ["openstack-erikube-node1-dapeng.onecloud.poc"]
             }
           ]}
          ]}
@@ -22,9 +22,9 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   storageClassName: local-storage
   local:
-    path: /mnt/disks/vol1
+    path: /mnt/disks/vol
 
-# "my-node" with the name of kubernetes node that is hosting this local storage disk
+# "openstack-erikube-node1-dapeng.onecloud.poc" with the name of kubernetes node that is hosting this local storage disk
 # "5Gi" with the required size of storage volume, same as specified in PVC
 # "local-storage" with the name of storage class to associate with this local volume
-# "/mnt/disks/vol1" with the path to the mount point of local volumes
+# "/mnt/disks/vol" with the path to the mount point of local volumes
