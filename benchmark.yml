@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: benchmark
+spec:
+  template:
+    metadata:
+      name: benchmark
+    spec:
+      containers:
+      - name: benchmark
+        image: centos:7
+        command: ["/bin/bash", "-c",
+        "yum -y install epel-release &&
+        yum -y install fio &&
+        dd if=/dev/zero of=/mnt/pv/test.img bs=2G count=1 oflag=dsync &&
+        fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=test --filename=/mnt/pv/test.img --bs=4k --iodepth=64 --size=4G --readwrite=randrw --rwmixread=75"]
+        volumeMounts:
+        - mountPath: "/mnt/pv"
+          name: local-storage-volume
+      volumes:
+      - name: local-storage-volume
+        persistentVolumeClaim:
+          claimName: local-storage-claim
+      restartPolicy: Never
