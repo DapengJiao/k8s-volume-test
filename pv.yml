@@ -16,7 +16,7 @@ metadata:
         }'
 spec:
   capacity:
-    storage: 5Gi
+    storage: 10Gi
   accessModes:
   - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
