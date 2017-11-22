@@ -11,10 +11,13 @@ spec:
       - name: benchmark
         image: centos:7
         command: ["/bin/bash", "-c",
-        "yum -y install epel-release &&
-        yum -y install fio &&
-        dd if=/dev/zero of=/mnt/pv/test.img bs=1G count=1 oflag=dsync &&
-        fio --randrepeat=1 --ioengine=libaio --direct=1 --gtod_reduce=1 --name=test --filename=/mnt/pv/test.img --bs=4k --iodepth=64 --size=4G --readwrite=randrw --rwmixread=75"]
+        "
+        yum -y install epel-release &&
+        yum -y install fio ioping &&
+        dd if=/dev/zero of=/mnt/pv/test.img bs=4G count=1 oflag=dsync &&
+        fio --randrepeat=1 --ioengine=libaio --gtod_reduce=1 --name=test --filename=/mnt/pv/test.img --bs=4k --iodepth=64 --size=4G --readwrite=randrw --rwmixread=75 &&
+        ioping -c 100 .
+        "]
         volumeMounts:
         - mountPath: "/mnt/pv"
           name: local-storage-volume
