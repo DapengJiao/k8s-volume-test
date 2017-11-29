@@ -9,8 +9,8 @@ spec:
     spec:
       containers:
       - name: benchmark
-        image: benchmark:v0.1
-        command: ["/bin/bash", "-c", ""]
+        image: openstack-docker-registry:5000/benchmark:0.1
+        command: ["/bin/bash", "-c", "/root/run_benchmark.sh"]
         volumeMounts:
         - mountPath: "/mnt/pv"
           name: local-storage-volume

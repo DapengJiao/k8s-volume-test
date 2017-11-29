@@ -9,7 +9,7 @@ metadata:
           { "matchExpressions": [
             { "key": "kubernetes.io/hostname",
               "operator": "In",
-              "values": ["openstack-erikube-node1-dapeng.onecloud.poc"]
+              "values": ["erikube-node1-dapeng.onecloud.poc"]
             }
           ]}
          ]}
