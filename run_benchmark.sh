@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo '>>>>>>>>>>>>>> Start to run ioping testing >>>>>>>>>>>>>>'
-ioping -c 100 .
+ioping -c 20 .
 
 echo '>>>>>>>>>>>>>> Start to warm up disk >>>>>>>>>>>>>>'
 dd if=/dev/zero of=/mnt/pv/test.img bs=1G count=1 oflag=dsync
