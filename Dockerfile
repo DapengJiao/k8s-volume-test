@@ -6,6 +6,6 @@ RUN yum install -y  epel-release\
                     fio \
                     ioping
 
-COPY run_benchmark.sh /home/centos
+COPY run_benchmark.sh /home/
 WORKDIR /root
-CMD ["/bin/bash", "-c", "/home/centos/run_benchmark.sh"]
+CMD ["/bin/bash", "-c", "/home/run_benchmark.sh"]

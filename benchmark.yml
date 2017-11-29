@@ -10,7 +10,7 @@ spec:
       containers:
       - name: benchmark
         image: openstack-docker-registry:5000/benchmark:0.1
-        command: ["/bin/bash", "-c", "/root/run_benchmark.sh"]
+        command: ["/bin/bash", "-c", "/home/centos/run_benchmark.sh"]
         volumeMounts:
         - mountPath: "/mnt/pv"
           name: local-storage-volume
