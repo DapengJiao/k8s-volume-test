@@ -8,4 +8,3 @@ RUN yum install -y fio ioping
 
 COPY run_benchmark.sh /home/
 RUN ["chmod", "+x", "/home/run_benchmark.sh"]
-CMD ["/bin/bash", "-c", "/home/run_benchmark.sh"]

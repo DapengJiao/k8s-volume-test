@@ -4,8 +4,8 @@ metadata:
   name: local-storage-claim
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
-  storageClassName: local-storage
+  storageClassName: erikube-localstorage

@@ -1,16 +1,20 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: benchmark
+  name: disk-benchmark
 spec:
   template:
     metadata:
-      name: benchmark
+      name: disk-benchmark
     spec:
       containers:
-      - name: benchmark
-        image: openstack-docker-registry:5000/benchmark:0.1
-        command: ["/bin/bash", "-c", "/home/centos/run_benchmark.sh"]
+      - name: disk-benchmark
+#        image: armdocker.rnd.ericsson.se/proj_kds/erikube/disk-benchmark:0.1
+        image: docker.io/dapeng1011/disk-benchmark:0.1
+        resources:
+          requests:
+            memory: 3Gi
+        command: ["/bin/bash", "-c", "/home/run_benchmark.sh"]
         volumeMounts:
         - mountPath: "/mnt/pv"
           name: local-storage-volume
