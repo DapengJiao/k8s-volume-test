@@ -9,8 +9,7 @@ spec:
     spec:
       containers:
       - name: disk-benchmark
-#        image: armdocker.rnd.ericsson.se/proj_kds/erikube/disk-benchmark:0.1
-        image: docker.io/dapeng1011/disk-benchmark:0.1
+        image: docker.io/dapeng1011/disk-benchmarker:0.1
         resources:
           requests:
             memory: 3Gi
